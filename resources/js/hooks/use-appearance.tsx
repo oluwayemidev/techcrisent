@@ -38,14 +38,46 @@ const handleSystemThemeChange = () => {
     applyTheme(currentAppearance || 'system');
 };
 
+// export function initializeTheme() {
+//     const savedAppearance = (localStorage.getItem('appearance') as Appearance) || 'system';
+
+//     applyTheme(savedAppearance);
+
+//     // Add the event listener for system theme changes...
+//     mediaQuery()?.addEventListener('change', handleSystemThemeChange);
+// }
+
+// export function initializeTheme() {
+//     const stored = localStorage.getItem('theme');
+//     if (stored === 'dark' || (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+//         document.documentElement.classList.add('dark');
+//         localStorage.setItem('theme', 'dark');
+//     } else {
+//         document.documentElement.classList.remove('dark');
+//         localStorage.setItem('theme', 'light');
+//     }
+// }
+
 export function initializeTheme() {
-    const savedAppearance = (localStorage.getItem('appearance') as Appearance) || 'system';
-
-    applyTheme(savedAppearance);
-
-    // Add the event listener for system theme changes...
+    const storedAppearance = (localStorage.getItem('appearance') as Appearance) || 'system';
+    applyTheme(storedAppearance);
     mediaQuery()?.addEventListener('change', handleSystemThemeChange);
 }
+
+
+export function useThemeMode() {
+    const [theme, setTheme] = useState<'light' | 'dark'>('light');
+
+    useEffect(() => {
+        const isDark = document.documentElement.classList.contains('dark');
+        setTheme(isDark ? 'dark' : 'light');
+    }, []);
+
+    return theme;
+}
+
+
+
 
 export function useAppearance() {
     const [appearance, setAppearance] = useState<Appearance>('system');

@@ -4,7 +4,43 @@ import type { Config } from 'ziggy-js';
 export interface Auth {
     user: User;
 }
-
+export interface PageProps {
+    title?: string;
+    description?: string;
+    keywords?: string[];
+    breadcrumbs?: BreadcrumbItem[];
+    navGroups?: NavGroup[];
+    auth?: Auth;
+    ziggy?: Config & { location: string };
+    sharedData?: SharedData;
+    [key: string]: unknown; // This allows for additional properties...
+    flash?: {
+        success?: string;
+        error?: string;
+        warning?: string;
+        info?: string;
+    };
+    errors?: Record<string, string[]>;
+    props?: Record<string, unknown>;
+    initialPage?: {
+        component: string;
+        props: Record<string, unknown>;
+        url: string;
+        version: string;
+        [key: string]: unknown; // This allows for additional properties...
+    };
+    inertia?: {
+        version: string;
+        page: {
+            component: string;
+            props: Record<string, unknown>;
+            url: string;
+            version: string;
+            [key: string]: unknown; // This allows for additional properties...
+        };
+        [key: string]: unknown; // This allows for additional properties...
+    };
+}
 export interface BreadcrumbItem {
     title: string;
     href: string;
