@@ -24,5 +24,4 @@ createInertiaApp({
     },
 });
 
-
 initializeTheme();
