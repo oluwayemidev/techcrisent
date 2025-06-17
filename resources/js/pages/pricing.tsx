@@ -88,7 +88,7 @@ export default function PricingPage() {
                             <div
                                 key={i}
                                 className={`relative rounded-2xl p-8 shadow-lg ${
-                                    plan.popular ? 'border-2 border-primary shadow-purple-700/40' : 'border border-zinc-800'
+                                    plan.popular ? 'border-2 border-primary shadow-purple-700/40 overflow-hidden' : 'border border-zinc-800'
                                 } bg-zinc-900 text-left`}
                             >
                                 {plan.popular && (
