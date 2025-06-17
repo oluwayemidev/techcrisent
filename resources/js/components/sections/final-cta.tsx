@@ -18,7 +18,7 @@ const FinalCTA = () => {
 
             {/* Optional 3D or Glow Background Effect */}
             <div className="absolute top-0 left-1/2 z-0 -translate-x-1/2 transform opacity-20 blur-3xl">
-                <div className="h-[600px] w-[600px] animate-pulse rounded-full bg-primary mix-blend-lighten" />
+                <div className="h-[600px] w-full md:w-[600px] animate-pulse rounded-full bg-primary mix-blend-lighten" />
             </div>
         </section>
     );

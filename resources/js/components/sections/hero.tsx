@@ -6,8 +6,8 @@ const HeroSection = () => {
     return (
         <section className="relative overflow-hidden bg-gradient-to-br from-[#0f0f0f] via-[#1a1a1a] to-[#0f0f0f] text-white">
             {/* Blurred radial background elements */}
-            <div className="absolute top-0 left-0 z-0 h-[40vw] w-[40vw] rounded-full bg-indigo-600/30 blur-[120px]" />
-            <div className="absolute right-0 bottom-0 z-0 h-[30vw] w-[30vw] rounded-full bg-purple-500/30 blur-[100px]" />
+            <div className="absolute top-0 left-0 z-0 h-[40vw] w-full md:w-[40vw] rounded-full bg-indigo-600/30 blur-[120px]" />
+            <div className="absolute right-0 bottom-0 z-0 h-[30vw] w-full md:w-[30vw] rounded-full bg-purple-500/30 blur-[100px]" />
 
             {/* Optional glass overlay */}
             <div className="absolute inset-0 z-0 bg-black/20 backdrop-blur-md" />
@@ -28,16 +28,16 @@ const HeroSection = () => {
                     <p className="text-lg text-gray-300 md:text-xl">
                         We build high-converting sites and automations that generate leads guaranteed or you don’t pay
                     </p>
-                    <div className="mt-6 flex gap-4">
+                    <div className="mt-6 flex gap-4 flex-wrap justify-center align-middle w-full">
                         <a
                             href="/audit"
-                            className="rounded-2xl bg-primary px-6 py-3 font-semibold text-white shadow-lg transition hover:bg-indigo-700"
+                            className="rounded-sm bg-primary p-3 md:px-6 md:py-3 font-semibold text-white shadow-lg transition hover:bg-indigo-700"
                         >
                             Get a Free Audit
                         </a>
                         <a
                             href="#projects"
-                            className="rounded-2xl border border-white px-6 py-3 font-semibold transition hover:bg-white hover:text-black"
+                            className="rounded-sm border border-white p-3 md:px-6 md:py-3 font-semibold transition hover:bg-white hover:text-black"
                         >
                             See Our Work
                         </a>

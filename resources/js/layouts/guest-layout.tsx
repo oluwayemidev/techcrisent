@@ -8,7 +8,7 @@ import { FaFacebookF, FaInstagram, FaLinkedinIn, FaTwitter } from 'react-icons/f
 import { FaLocationDot } from 'react-icons/fa6';
 import { TbMailFilled } from 'react-icons/tb';
 import { Toaster } from '@/components/ui/sonner';
-
+import ScrollToTopOnNavigate from '@/components/scroll-to-top';
 
 interface GuestLayoutProps {
     children: ReactNode;
@@ -37,7 +37,7 @@ const navItems: NavItem[] = [
         href: '/audit',
         isButton: true,
         buttonClass:
-            'rounded-sm bg-primary px-6 py-3 text-sm font-semibold text-white hover:text-white transition hover:bg-gray-800 dark:bg-gray-700 dark:hover:bg-gray-600 md:px-8 md:py-4 hidden md:inline-block',
+            'rounded-sm bg-primary px-6 py-3 text-sm font-semibold text-white hover:text-white transition hover:bg-gray-800 dark:bg-gray-700 dark:hover:bg-gray-600 md:px-8 md:py-4 hidden lg:inline-block',
     },
 ];
 
@@ -56,11 +56,11 @@ const GuestLayout: React.FC<GuestLayoutProps> = ({ children, title = 'Crisent' }
 
     return (
         <div className="bg-background text-foreground flex min-h-screen flex-col transition-colors duration-300">
+            <ScrollToTopOnNavigate />
             <Head title={title}>
                 <link rel="preconnect" href="https://fonts.bunny.net" />
                 <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
             </Head>
-            <Toaster />
 
             {/* Header */}
             <header className="bg-card border-border sticky top-0 z-50 border-b shadow-sm">
@@ -163,6 +163,7 @@ const GuestLayout: React.FC<GuestLayoutProps> = ({ children, title = 'Crisent' }
 
             {/* Main Content */}
             <main className="flex-grow">{children}</main>
+            <Toaster position='top-center' />
 
             {/* Footer */}
             <footer className="bg-[#0B1120] px-4 py-12 text-gray-400">

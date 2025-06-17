@@ -1,7 +1,20 @@
 <?php
 
+use App\Http\Controllers\Admin\ActivityLogController;
+use App\Http\Controllers\Admin\AdminAuthController;
+use App\Http\Controllers\Admin\ToolController;
 use App\Http\Controllers\AuditController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\Auth\LoginController;
+use App\Http\Controllers\Admin\BlogController;
+use App\Http\Controllers\Admin\ClientController;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\InvoiceController;
+use App\Http\Controllers\Admin\LeadController;
+use App\Http\Controllers\Admin\ProjectController;
+use App\Http\Controllers\Admin\SettingsController;
+use App\Http\Controllers\Admin\TeamController;
+use App\Http\Controllers\SupportController;
 use Inertia\Inertia;
 
 Route::get('/', function () {
@@ -63,11 +76,42 @@ Route::get('/privacy-policy', function () {
     return Inertia::render('privacy-policy');
 })->name('privacy-policy');
 
-Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('dashboard', function () {
-        return Inertia::render('dashboard');
-    })->name('dashboard');
+// User Dashboard
+Route::middleware(['auth'])->group(function (){
+    Route::get('/dashboard', fn() => inertia('dashboard'))-> name('dashboard');
 });
+
+// Admin dashboard (authenticated)
+// Route::middleware(['auth', 'is_admin'])->group(function () {
+//     Route::get('/admin', [AdminController::class, 'index'])->name('admin.dashboard');
+// });
+
+Route::prefix('admin')->group(function () {
+    Route::name('admin.')->middleware(['admin.auth'])->group(function () {
+        Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+        Route::get('/clients', [ClientController::class, 'index'])->name('clients');
+        Route::get('/projects', [ProjectController::class, 'index'])->name('projects');
+        Route::get('/leads', [LeadController::class, 'index'])->name('leads');
+        Route::get('/invoices', [InvoiceController::class, 'index'])->name('invoices');
+        Route::get('/team', [TeamController::class, 'index'])->name('team');
+        Route::get('/blog', [BlogController::class, 'index'])->name('blog');
+        Route::get('/settings', [SettingsController::class, 'index'])->name('settings');
+        Route::get('/tools', [ToolController::class, 'index'])->name('tools');
+        Route::get('/activity', [ActivityLogController::class, 'index'])->name('activity');
+        Route::get('/support', [SupportController::class, 'index'])->name('support');
+        Route::post('/logout', [AdminAuthController::class, 'logout'])->name('logout');
+    });
+
+    Route::get('/login', [LoginController::class, 'showLoginForm'])->name('admin.login');
+    Route::post('/login', [LoginController::class, 'login'])->name('admin.login.submit');
+    Route::post('/logout', [LoginController::class, 'logout'])->name('admin.logout');
+
+    Route::middleware('admin.auth')->group(function () {
+        Route::get('/dashboard', fn () => Inertia::render('admin/dashboard'))->name('admin.dashboard');
+    });
+});
+
+
 
 require __DIR__.'/settings.php';
 require __DIR__.'/auth.php';

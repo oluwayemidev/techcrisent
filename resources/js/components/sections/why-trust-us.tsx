@@ -28,7 +28,7 @@ const socialLinks = [
 const WhyTrustUsSection = () => {
     return (
         <section className="bg-background text-foreground px-6 py-24 md:px-12 dark:bg-gray-950" id="about">
-            <div className="mx-auto grid max-w-6xl items-center gap-12 md:grid-cols-2">
+            <div className="mx-auto grid max-w-6xl items-center gap-y-12 md:gap-12 md:grid-cols-2 overflow-x-hidden">
                 {/* Text Block */}
                 <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }}>
                     <h2 className="mb-4 text-3xl font-bold text-gray-900 md:text-4xl dark:text-white">Why Trust Us</h2>
@@ -73,7 +73,7 @@ const WhyTrustUsSection = () => {
                     <img
                         src="/images/founder.jpg"
                         alt="Founder"
-                        className="h-84 w-84 rounded-2xl border-4 border-indigo-600 object-cover shadow-xl"
+                        className="border-primary h-auto w-full rounded-2xl border-4 object-cover shadow-xl md:h-84 md:w-84"
                     />
                 </motion.div>
             </div>

@@ -38,7 +38,7 @@ const SocialProofSection = () => {
     const gradientColor = theme === 'dark' ? "rgb{[24, 24, 27]}" : "rgb{[255, 255, 255]}";
 
     return (
-        <section className="px-6 py-24 text-white md:px-12 dark:bg-gray-950">
+        <section className="p-3 md:px-6 md:py-24 text-white dark:bg-gray-950">
             {/* <div className="mx-auto mb-16 max-w-6xl text-center">
                 <motion.h2
                     initial={{ opacity: 0, y: 30 }}
@@ -51,7 +51,7 @@ const SocialProofSection = () => {
             </div> */}
 
             {/* Logo Carousel */}
-            <div className="mb-20">
+            <div className="mb-5 md:mb-20">
                 <Marquee gradient={true} gradientColor={gradientColor} speed={50} className="mx-auto max-w-6xl">
                     {logos.map((src, index) => (
                         <motion.div whileHover={{ scale: 1.05 }} key={index} className="mx-8 opacity-70 transition hover:opacity-100">

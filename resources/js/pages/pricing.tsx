@@ -15,13 +15,13 @@ export default function PricingPage() {
                     <div className="flex flex-wrap justify-center gap-4">
                         <a
                             href="#contact"
-                            className="bg-primary rounded-2xl px-6 py-3 font-semibold text-white shadow-lg transition hover:bg-gray-800 dark:bg-gray-700 dark:hover:bg-gray-600"
+                            className="bg-primary rounded-sm p-3 md:px-6 md:py-3 font-semibold text-white shadow-lg transition hover:bg-gray-800 dark:bg-gray-700 dark:hover:bg-gray-600"
                         >
                             Get Started
                         </a>
                         <a
                             href="/audit"
-                            className="rounded-2xl border border-gray-500 px-6 py-3 font-semibold transition hover:bg-white hover:text-black"
+                            className="rounded-sm border border-gray-500 p-3 md:px-6 md:py-3 font-semibold transition hover:bg-white hover:text-black"
                         >
                             Get Free Audit
                         </a>
@@ -204,7 +204,7 @@ export default function PricingPage() {
                         </a>
                     </div>
                     <div className="absolute top-0 left-1/2 z-0 -translate-x-1/2 transform opacity-20 blur-3xl">
-                        <div className="bg-primary h-[600px] w-[600px] animate-pulse rounded-full mix-blend-lighten" />
+                        <div className="bg-primary h-[600px] w-full md:w-[600px] animate-pulse rounded-full mix-blend-lighten" />
                     </div>
                 </section>
             </div>

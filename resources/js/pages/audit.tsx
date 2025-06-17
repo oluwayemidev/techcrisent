@@ -46,9 +46,9 @@ export default function AuditPage() {
             <GuestLayout title={pageProps.props.title || 'Free Homepage Audit'}>
                 <div className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 px-6 py-12 text-white">
                     <div className="mb-12 max-w-3xl text-center">
-                        <h1 className="mb-4 text-4xl font-bold md:text-5xl">Claim Your Free Homepage Audit</h1>
+                        <h1 className="mb-4 text-4xl font-bold md:text-5xl">Claim Your Free Audit</h1>
                         <p className="text-lg text-gray-300">
-                            Discover what’s preventing your site from converting visitors into clients — and how to fix it.
+                            Discover what’s preventing your site from converting visitors into clients and how to fix it.
                         </p>
                     </div>
 
@@ -103,7 +103,7 @@ export default function AuditPage() {
                         </CardContent>
                     </Card>
                     <div className="absolute top-0 left-1/2 z-0 -translate-x-1/2 transform opacity-20 blur-3xl">
-                        <div className="bg-primary h-[600px] w-[600px] animate-pulse rounded-full mix-blend-lighten" />
+                        <div className="bg-primary h-[600px] w-full md:w-[600px] animate-pulse rounded-full mix-blend-lighten" />
                     </div>
                 </div>
             </GuestLayout>
