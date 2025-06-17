@@ -69,7 +69,7 @@
 <body>
     <div class="email-container">
         <div class="email-header">
-            <img src="https://crisent.com/favicon.png" alt="Crisent Tech Logo">
+            <img src="https://crisent.com/favicon.png" width="60px" alt="Crisent Tech Logo">
             <h1>Crisent Tech</h1>
         </div>
         <div class="email-body">
