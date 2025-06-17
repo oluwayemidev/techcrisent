@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\ActivityLogController;
 use App\Http\Controllers\Admin\AdminAuthController;
+use App\Http\Controllers\Admin\AuditResponseController;
 use App\Http\Controllers\Admin\ToolController;
 use App\Http\Controllers\AuditController;
 use Illuminate\Support\Facades\Route;
@@ -100,6 +101,9 @@ Route::prefix('admin')->group(function () {
         Route::get('/activity', [ActivityLogController::class, 'index'])->name('activity');
         Route::get('/support', [SupportController::class, 'index'])->name('support');
         Route::post('/logout', [AdminAuthController::class, 'logout'])->name('logout');
+        Route::post('/audits/{id}/respond', [AuditResponseController::class,
+        'respond'])->name('admin.audits.respond');
+
     });
 
     Route::get('/login', [LoginController::class, 'showLoginForm'])->name('admin.login');

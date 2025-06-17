@@ -20,15 +20,16 @@ import {
     SidebarFooter,
     SidebarHeader,
     SidebarRail,
-    SidebarToggleButton,
-    SidebarTrigger,
 } from "@/components/ui/sidebar"
 
-import { BiSupport } from "react-icons/bi";
+import { BiSupport as BiSupportIcon } from "react-icons/bi";
 
-import { Link, useForm } from "@inertiajs/react"
+import { useForm } from "@inertiajs/react"
 import { NavMain } from "@/components/nav-main"
 import { NavUser } from "@/pages/admin/nav-user"
+const BiSupportForwardRef = (props: React.ComponentProps<'svg'>) => (
+    <BiSupportIcon {...props} />
+);
 
 const navMain = [
     { title: "Dashboard", href: route("admin.dashboard"), icon: Home, isActive: route().current("admin.dashboard") },
@@ -41,7 +42,7 @@ const navMain = [
     { title: "Settings", href: route("admin.settings"), icon: Settings, isActive: route().current("admin.settings") },
     { title: "Tools", href: route("admin.tools"), icon: Hammer, isActive: route().current("admin.tools") },
     { title: "Activity Logs", href: route("admin.activity"), icon: Activity, isActive: route().current("admin.activity") },
-    { title: "Support", href: route("admin.support"), icon: BiSupport, isActive: route().current("admin.support") },
+    { title: "Support", href: route("admin.support"), icon: BiSupportForwardRef, isActive: route().current("admin.support") },
 ]
 
 export function AppSidebar(props: React.ComponentProps<typeof Sidebar>) {

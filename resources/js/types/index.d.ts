@@ -11,6 +11,7 @@ export interface PageProps {
     breadcrumbs?: BreadcrumbItem[];
     navGroups?: NavGroup[];
     auth?: Auth;
+    audits?: AuditRequest[];
     ziggy?: Config & { location: string };
     sharedData?: SharedData;
     [key: string]: unknown; // This allows for additional properties...
@@ -40,6 +41,15 @@ export interface PageProps {
         };
         [key: string]: unknown; // This allows for additional properties...
     };
+}
+export interface AuditRequest {
+    id: number;
+    name: string;
+    email: string;
+    website: string;
+    struggle: string | null;
+    created_at: string;
+    updated_at: string;
 }
 export interface BreadcrumbItem {
     title: string;

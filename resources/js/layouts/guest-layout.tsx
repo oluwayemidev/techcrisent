@@ -163,7 +163,7 @@ const GuestLayout: React.FC<GuestLayoutProps> = ({ children, title = 'Crisent' }
 
             {/* Main Content */}
             <main className="flex-grow">{children}</main>
-            <Toaster position='top-center' />
+            <Toaster />
 
             {/* Footer */}
             <footer className="bg-[#0B1120] px-4 py-12 text-gray-400">

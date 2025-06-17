@@ -58,7 +58,7 @@ export default function AdminLogin() {
                                     {errors.password && <p className="text-sm text-red-500">{errors.password}</p>}
                                 </div>
 
-                                <Button type="submit" className="w-full text-md font-semibold" disabled={processing}>
+                                <Button type="submit" className="w-full text-md font-semibold dark:text-white" disabled={processing}>
                                     {processing ? 'Logging in...' : 'Login'}
                                 </Button>
                             </form>
